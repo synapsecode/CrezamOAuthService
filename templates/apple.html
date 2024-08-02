@@ -49,6 +49,7 @@
                 }).then(x => x.json())
                     .then(data => {
                         // console.log('Recieved Payload', data);
+                        data = { ...data, 'provider': 'APPLE' };
                         window.parent.postMessage(JSON.stringify(data), '*');
                     }).catch((error) => {
                         console.error(error)

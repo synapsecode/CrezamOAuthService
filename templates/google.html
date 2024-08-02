@@ -30,6 +30,7 @@
                     picture: responsePayload.picture || null,
                     first_name: responsePayload.given_name || null,
                     last_name: responsePayload.family_name || null,
+                    provider: 'GOOGLE',
                 };
                 console.log('GOOGLX::' + JSON.stringify(googlePayload));
                 window.parent.postMessage(JSON.stringify(googlePayload), '*');
