@@ -20,11 +20,11 @@ def get_cache(timeout=50):
         return wrapped
     return decorator
 
-@app.route('/')
+@app.route('/oauthservice')
 def home():
     return 'Crezam OAuth Service'
 
-@app.route('/auth/apple', methods=['GET', 'POST'])
+@app.route('/oauthservice/apple', methods=['GET', 'POST'])
 @get_cache(timeout=100)
 def applelogin():
     if request.method == 'POST':
@@ -33,7 +33,7 @@ def applelogin():
         return jsonify(user)
     return render_template('apple.html')
 
-@app.route('/auth/google')
+@app.route('/oauthservice/google')
 @get_cache(timeout=100)
 def googlelogin():
     return render_template('google.html')
@@ -41,4 +41,4 @@ def googlelogin():
 # Runner Script
 if __name__ == "__main__":
     # app.run(debug=True, port=3000) #Debugging
-    app.run(host="0.0.0.0", debug=False, port=25552)
+    app.run(host="0.0.0.0", port=3000)
