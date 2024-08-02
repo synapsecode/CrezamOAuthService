@@ -41,4 +41,4 @@ def googlelogin():
 # Runner Script
 if __name__ == "__main__":
     # app.run(debug=True, port=3000) #Debugging
-    app.run(debug=False, port=8080)
+    app.run(host="0.0.0.0", debug=False, port=25552)
