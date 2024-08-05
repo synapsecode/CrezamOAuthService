@@ -38,6 +38,11 @@ def applelogin():
 def googlelogin():
     return render_template('google.html')
 
+
+@app.route('/cameraservice')
+def cameraservice():
+    return render_template('camera.html')
+
 # Runner Script
 if __name__ == "__main__":
     # app.run(debug=True, port=3000) #Debugging

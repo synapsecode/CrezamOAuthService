@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #video {
+            height: 200px;
+            width: 300px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video" height="200" width="300" autoplay></video>
+    <script>
+        (function () {
+            var video = document.getElementById('video');
+
+            navigator.getMedia = navigator.getUserMedia ||
+                navigator.webkitGetUserMedia ||
+                navigator.mozGetUserMedia ||
+                navigator.msGetUserMedia;
+
+            //capture video
+            navigator.getMedia({
+                video: true,
+                audio: false,
+            }, function (stream) {
+                video.srcObject = stream;
+                //send this stream to the RPC stuff
+                video.play();
+            }, function (err) {
+                alert(err);
+            });
+        })();
+    </script>
+</body>
+
+</html>
